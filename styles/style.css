@@ -1,0 +1,9 @@
+@font-face {
+    font-family: digital7;
+    src: url(../fonts/digital-7.regular.ttf);
+}
+
+.screen {
+    font-family: digital7, monospace;
+    font-size: 48px;
+}
