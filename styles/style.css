@@ -3,7 +3,44 @@
     src: url(../fonts/digital-7.regular.ttf);
 }
 
+:root {
+    --background-color: #F3F3F3;
+    --calculator-body: rgb(255, 235, 235);
+    --calculator-border: rgb(120, 75, 75);
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.calc-body {
+    height: 550px;
+    width: 450px;
+    border: 3px solid var(--calculator-border);
+    border-radius: 15px;
+    background-color: var(--calculator-body);
+}
+
 .screen {
     font-family: digital7, monospace;
     font-size: 48px;
+    user-select: none; /* Standard */
 }
