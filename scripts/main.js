@@ -41,8 +41,18 @@ function operate(operator, num1, num2) {
 }
 
 function displayScreen() {
-    const lowerScreen = document.querySelector(".lower-screen");
     lowerScreen.innerText = expr.currOp;
+}
+
+function clearExprn() {
+    for (key in expr) {
+        expr[key] = null;
+    }
+}
+
+function clearScreen() {
+    lowerScreen.textContent = "0";
+    upperScreen.textContent = "";
 }
 
 function numberInput(e) {
@@ -55,6 +65,14 @@ function numberInput(e) {
   console.log(expr.currOp);
 }
 
-const numBtn = document.querySelectorAll(".number-button");
+const numBtns = document.querySelectorAll(".number-button");
+const clrBtn = document.querySelector("#clear");
+const lowerScreen = document.querySelector(".lower-screen");
+const upperScreen = document.querySelector(".upper-screen");
 
-numBtn.forEach((btn) => btn.addEventListener("click", numberInput));
+numBtns.forEach((btn) => btn.addEventListener("click", numberInput));
+clrBtn.addEventListener('click', () => {
+    clearExprn();
+    clearScreen();
+    console.log(expr);
+});
