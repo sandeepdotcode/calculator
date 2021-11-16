@@ -3,7 +3,7 @@
     src: url(../fonts/digital-7.regular.ttf);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
 :root {
     --background-color: #F3F3F3;
@@ -72,19 +72,21 @@ body {
 .number-button {
     border: 3px solid var(--calculator-border);
     border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-family: 'Poppins', sans-serif; 
 }
 
 .number-button {
     background-color: var(--background-number);
     color: var(--calculator-border);
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .op-button {
     background-color: var(--background-op);
     color: var(--letter-op);
+    font-weight: 700;
+    font-size: 14px
 }
 
 .button-container {
