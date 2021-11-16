@@ -69,7 +69,9 @@ body {
 }
 
 .op-button,
-.number-button {
+.number-button,
+.clr-button,
+.del-button {
     border: 3px solid var(--calculator-border);
     border-radius: 5px;
     font-family: 'Poppins', sans-serif; 
@@ -82,7 +84,9 @@ body {
     font-size: 16px;
 }
 
-.op-button {
+.op-button,
+.clr-button,
+.del-button {
     background-color: var(--background-op);
     color: var(--letter-op);
     font-weight: 700;

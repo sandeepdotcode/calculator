@@ -62,11 +62,10 @@ function numberInput(e) {
     expr.currOp += e.target.innerText;
   }
   displayScreen();
-  console.log(expr.currOp);
 }
 
 const numBtns = document.querySelectorAll(".number-button");
-const clrBtn = document.querySelector("#clear");
+const clrBtn = document.querySelector(".clr-button");
 const lowerScreen = document.querySelector(".lower-screen");
 const upperScreen = document.querySelector(".upper-screen");
 
@@ -74,5 +73,4 @@ numBtns.forEach((btn) => btn.addEventListener("click", numberInput));
 clrBtn.addEventListener('click', () => {
     clearExprn();
     clearScreen();
-    console.log(expr);
 });
