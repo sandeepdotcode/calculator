@@ -1,7 +1,8 @@
 let expr = {
   prevOp: null,
   operator: null,
-  currOp: null,
+  currOp: 0,
+  result: null,
 };
 
 function add(a, b) {
@@ -20,7 +21,7 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(operator, num1, num2) {
+function operate(operator, num1, num2 = 0) {
   switch (operator) {
     case "+":
       result = add(num1, num2);
@@ -40,37 +41,83 @@ function operate(operator, num1, num2) {
   return result;
 }
 
-function displayScreen() {
-    lowerScreen.innerText = expr.currOp;
+// function to display to the calculator screen
+// mode 0 - display currOp to lower screen
+// mode 1 - display prevOp & operator to upper screen
+// mode 2 - display prevOp, operator & currOp to upper screen & result on lower screen
+function displayScreen(mode) {
+  switch (mode) {
+    case 0:
+      lowerScreen.innerText = expr.currOp;
+      break;
+    case 1:
+      upperScreen.innerText = `${expr.prevOp} ${expr.operator}`;
+      lowerScreen.innerText = expr.currOp;
+      break;
+    case 2:
+      upperScreen.innerText = `${expr.prevOp} ${expr.operator} ${expr.currOp} =`;
+      lowerScreen.innerText = expr.result;
+  }
 }
 
 function clearExprn() {
-    for (key in expr) {
-        expr[key] = null;
-    }
+  expr.prevOp = null;
+  expr.operator = null;
+  expr.currOp = 0;
+  expr.result = null;
 }
 
 function clearScreen() {
-    lowerScreen.textContent = "0";
-    upperScreen.textContent = "";
+  lowerScreen.textContent = "0";
+  upperScreen.textContent = "";
 }
 
 function numberInput(e) {
-  if (expr.currOp == null) {
+  if (expr.currOp == 0) {
     expr.currOp = e.target.innerText;
   } else {
     expr.currOp += e.target.innerText;
   }
-  displayScreen();
+  displayScreen(0);
+}
+
+function operatorInput(e) {
+  if (expr.result != null) {
+    expr.prevOp = expr.result;
+    expr.operator = e.target.getAttribute("data-op");
+    expr.currOp = 0;
+    displayScreen(1);
+  } else if (expr.prevOp == null && expr.currOp != 0) {
+    expr.prevOp = expr.currOp;
+    expr.operator = e.target.getAttribute("data-op");
+    expr.currOp = 0;
+    displayScreen(1);
+  } else if (expr.prevOp != null) {
+    expr.result = operate(expr.operator, expr.prevOp, expr.currOp);
+    expr.operator = e.target.getAttribute("data-op");
+    expr.currOp = 0;
+    displayScreen(2);
+  }
+}
+
+function eqInput() {
+  if (expr.prevOp != null) {
+    expr.result = operate(expr.operator, expr.prevOp, expr.currOp);
+    displayScreen(2);
+  }
 }
 
 const numBtns = document.querySelectorAll(".number-button");
 const clrBtn = document.querySelector(".clr-button");
+const opBtns = document.querySelectorAll(".op-button");
+const eqBtn = document.querySelector(".eq-button");
 const lowerScreen = document.querySelector(".lower-screen");
 const upperScreen = document.querySelector(".upper-screen");
 
 numBtns.forEach((btn) => btn.addEventListener("click", numberInput));
-clrBtn.addEventListener('click', () => {
-    clearExprn();
-    clearScreen();
+opBtns.forEach((btn) => btn.addEventListener("click", operatorInput));
+eqBtn.addEventListener("click", eqInput);
+clrBtn.addEventListener("click", () => {
+  clearExprn();
+  clearScreen();
 });
