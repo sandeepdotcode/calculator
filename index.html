@@ -19,9 +19,9 @@
         </div>
         <div class="button-container">
             <div class="upper-buttons">
-                <button class="wide-button clr-button">AC</button>
-                <button class="wide-button del-button">DEL</button>
-                <button class="small-button op-button">%</button>
+                <button class="wide-button clr-button nop-button">AC</button>
+                <button class="wide-button del-button nop-button">DEL</button>
+                <button class="small-button op-button" data-op="%">%</button>
             </div>
             <div class="lower-buttons">
                 <div class="numbers">
@@ -39,13 +39,13 @@
                     <button class="number-button small-button">.</button>
                 </div>
                 <div class="right-buttons">
-                    <button class="op-button small-button">&Sqrt;x</button>
-                    <button class="op-button small-button">x<sup>2</sup></button>
-                    <button class="op-button small-button">x</button>
-                    <button class="op-button small-button">&div;</button>
-                    <button class="op-button small-button">+</button>
-                    <button class="op-button small-button">-</button>
-                    <button class="op-button tall-button">=</button>
+                    <button class="op-button small-button" data-op="~">&Sqrt;x</button>
+                    <button class="op-button small-button" data-op="^">x<sup>2</sup></button>
+                    <button class="op-button small-button" data-op="*">x</button>
+                    <button class="op-button small-button" data-op="/">&div;</button>
+                    <button class="op-button small-button" data-op="+">+</button>
+                    <button class="op-button small-button" data-op="-">-</button>
+                    <button class="eq-button tall-button nop-button">=</button>
                 </div>
             </div>
         </div>
