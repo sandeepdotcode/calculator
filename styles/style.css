@@ -1,148 +1,151 @@
 @font-face {
-    font-family: digital7;
-    src: url(../fonts/digital-7.regular.ttf);
+  font-family: digital7;
+  src: url(../fonts/digital-7.regular.ttf);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
 
 :root {
-    --background-color: #F3F3F3;
-    --calculator-body: rgb(255, 235, 235);
-    --calculator-border: rgb(120, 75, 75);
-    --background-screen: rgb(158, 103, 103);
-    --background-number: rgb(255, 255, 255);
-    --background-op: rgb(252, 174, 174);
-    --letter-op: rgb(255, 233, 206);
+  --background-color: #f3f3f3;
+  --calculator-body: rgb(255, 235, 235);
+  --calculator-border: rgb(120, 75, 75);
+  --background-screen: rgb(158, 103, 103);
+  --background-number: rgb(255, 255, 255);
+  --background-op: rgb(252, 174, 174);
+  --letter-op: rgb(255, 233, 206);
 }
 
 html {
-    box-sizing: border-box;
-    height: 100%;
-    font-family: sans-serif;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: sans-serif;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: var(--background-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .calc-body {
-    height: 550px;
-    width: 405px;
-    border: 3px solid var(--calculator-border);
-    border-radius: 15px;
-    background-color: var(--calculator-body);
+  height: 550px;
+  width: 405px;
+  border: 3px solid var(--calculator-border);
+  border-radius: 15px;
+  background-color: var(--calculator-body);
 }
 
 .screen {
-    font-family: digital7, monospace;
-    font-size: 48px;
-    user-select: none; /* Standard */
-    border: 3px solid var(--calculator-border);
-    border-radius: 5px;
-    margin: 60px 25px 30px;
-    height: 15%;
-    background-color: var(--background-screen);
-    color: var(--calculator-body);
+  font-family: digital7, monospace;
+  user-select: none; /* Standard */
+  border: 3px solid var(--calculator-border);
+  border-radius: 5px;
+  margin: 60px 25px 30px;
+  height: 15%;
+  background-color: var(--background-screen);
+  color: var(--calculator-body);
 }
 
 .upper-screen {
-    height: 30%;
+  height: 30%;
+  text-align: right;
+  font-size: 20px;
+  padding-right: 10px;
+  margin-top: 5px;
 }
 
 .lower-screen {
-    height: 60%;
-    text-align: right;
-    margin: 0px 10px 10px;
-    padding-top: 5px;
+  height: 60%;
+  text-align: right;
+  margin: 0px 10px 10px;
+  padding-top: 5px;
+  font-size: 48px;
 }
 
 .op-button,
 .number-button,
 .nop-button {
-    border: 3px solid var(--calculator-border);
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif; 
+  border: 3px solid var(--calculator-border);
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
 }
 
 .number-button {
-    background-color: var(--background-number);
-    color: var(--calculator-border);
-    font-weight: 500;
-    font-size: 16px;
+  background-color: var(--background-number);
+  color: var(--calculator-border);
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .op-button,
 .nop-button {
-    background-color: var(--background-op);
-    color: var(--letter-op);
-    font-weight: 700;
-    font-size: 14px
+  background-color: var(--background-op);
+  color: var(--letter-op);
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0 25px 25px;
-    height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 25px 25px;
+  height: 350px;
 }
 
 .upper-buttons {
-    height: 62px;
-    display: flex;
-    gap: 10px;
+  height: 62px;
+  display: flex;
+  gap: 10px;
 }
 
 .wide-button {
-    height: 62px;
-    width: 134px;
+  height: 62px;
+  width: 134px;
 }
 
 .small-button {
-    height: 62px;
-    width: 62px;
+  height: 62px;
+  width: 62px;
 }
 
 .lower-buttons {
-    display: flex;
-    gap: 10px;
-    
+  display: flex;
+  gap: 10px;
 }
 
 .numbers {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
-    row-gap: 10px;
-    width: 206px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
+  width: 206px;
 }
 
 .right-buttons {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 10px;
-    row-gap: 10px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
 .tall-button {
-    width: 62px;
-    height: 134px;
-    grid-row-start: 3;
-    grid-row-end: 5;
-    grid-column-start: 2;
-    grid-column-end: 3;
+  width: 62px;
+  height: 134px;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
