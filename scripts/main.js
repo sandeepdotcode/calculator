@@ -21,6 +21,18 @@ function divide(a, b) {
   return a / b;
 }
 
+function modulo(a, b) {
+  return a % b;
+}
+
+function square(a) {
+  return a * a;
+}
+
+function sqroot(a) {
+  return Math.sqrt(a);
+}
+
 function operate(operator, num1, num2 = 0) {
   switch (operator) {
     case "+":
@@ -45,6 +57,7 @@ function operate(operator, num1, num2 = 0) {
 // mode 0 - display currOp to lower screen
 // mode 1 - display prevOp & operator to upper screen
 // mode 2 - display prevOp, operator & currOp to upper screen & result on lower screen
+// mode 3 - display ERROR message
 function displayScreen(mode) {
   switch (mode) {
     case 0:
@@ -55,8 +68,15 @@ function displayScreen(mode) {
       lowerScreen.innerText = expr.currOp;
       break;
     case 2:
-      upperScreen.innerText = `${expr.prevOp} ${expr.operator} ${expr.currOp} =`;
+      upperScreen.innerText = `${expr.prevOp} ${expr.operator} ${expr.currOp} = `;
       lowerScreen.innerText = expr.result;
+      break;
+    case 3:
+      upperScreen.innerText = "";
+      lowerScreen.innerText = "ERROR";
+      break;
+    default:
+      break;
   }
 }
 
