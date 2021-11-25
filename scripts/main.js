@@ -47,6 +47,15 @@ function operate(operator, num1, num2 = 0) {
     case "/":
       result = divide(num1, num2);
       break;
+    case "%":
+      result = modulo(num1, num2);
+      break;
+    case "^":
+      result = square(num1);
+      break;
+    case "~":
+      result = sqroot(num1);
+      break;
     default:
       result = "ERROR";
   }
@@ -129,6 +138,7 @@ function eqInput() {
 
 const numBtns = document.querySelectorAll(".number-button");
 const clrBtn = document.querySelector(".clr-button");
+const delBtn = document.querySelector(".del-button");
 const opBtns = document.querySelectorAll(".op-button");
 const eqBtn = document.querySelector(".eq-button");
 const lowerScreen = document.querySelector(".lower-screen");
@@ -141,3 +151,13 @@ clrBtn.addEventListener("click", () => {
   clearExprn();
   clearScreen();
 });
+delBtn.addEventListener("click", () => {
+  if (expr.currOp != 0) {
+    expr.currOp = expr.currOp.slice(0, -1);
+    displayScreen(0);
+  }
+  if (expr.currOp === "") {
+    expr.currOp = 0;
+    displayScreen(0);
+  }
+})
