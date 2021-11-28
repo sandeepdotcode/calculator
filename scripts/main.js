@@ -5,35 +5,42 @@ let expr = {
   result: null,
 };
 
+// rounds the value of result to be returned by operations
+function getRound(num) {
+  return Math.round((num + Number.EPSILON) * 100) / 100;
+}
+
 function add(a, b) {
-  return Number(a) + Number(b);
+  return getRound(a + b);
 }
 
 function subtract(a, b) {
-  return a - b;
+  return getRound(a - b);
 }
 
 function multiply(a, b) {
-  return a * b;
+  return getRound(a * b);
 }
 
 function divide(a, b) {
-  return a / b;
+  return getRound(a / b);
 }
 
 function modulo(a, b) {
-  return a % b;
+  return getRound(a % b);
 }
 
 function square(a) {
-  return a * a;
+  return getRound(a * a);
 }
 
 function sqroot(a) {
-  return Math.sqrt(a);
+  return getRound(Math.sqrt(a));
 }
 
 function operate(operator, num1, num2 = 0) {
+  num1 = Number(num1);
+  num2 = Number(num2);
   switch (operator) {
     case "+":
       result = add(num1, num2);
