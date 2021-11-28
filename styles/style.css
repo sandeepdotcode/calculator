@@ -74,13 +74,15 @@ body {
 
 .op-button,
 .number-button,
-.nop-button {
+.nop-button,
+.dot-button {
   border: 3px solid var(--calculator-border);
   border-radius: 5px;
   font-family: "Poppins", sans-serif;
 }
 
-.number-button {
+.number-button,
+.dot-button {
   background-color: var(--background-number);
   color: var(--calculator-border);
   font-weight: 500;

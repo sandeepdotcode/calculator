@@ -6,36 +6,36 @@ let expr = {
 };
 
 // rounds the value of result to be returned by operations
-function getRound(num) {
+function calcRound(num) {
   return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
 function add(a, b) {
-  return getRound(a + b);
+  return calcRound(a + b);
 }
 
 function subtract(a, b) {
-  return getRound(a - b);
+  return calcRound(a - b);
 }
 
 function multiply(a, b) {
-  return getRound(a * b);
+  return calcRound(a * b);
 }
 
 function divide(a, b) {
-  return getRound(a / b);
+  return calcRound(a / b);
 }
 
 function modulo(a, b) {
-  return getRound(a % b);
+  return calcRound(a % b);
 }
 
 function square(a) {
-  return getRound(a * a);
+  return calcRound(a * a);
 }
 
 function sqroot(a) {
-  return getRound(Math.sqrt(a));
+  return calcRound(Math.sqrt(a));
 }
 
 function operate(operator, num1, num2 = 0) {
@@ -117,6 +117,14 @@ function numberInput(e) {
   displayScreen(0);
 }
 
+function dotInput() {
+  let curString = expr.currOp.toString();
+  if (!(curString.includes("."))) {
+    expr.currOp += ".";
+  }
+  displayScreen(0);
+}
+
 function operatorInput(e) {
   if (expr.result != null) {
     expr.prevOp = expr.result;
@@ -145,6 +153,7 @@ function eqInput() {
 }
 
 const numBtns = document.querySelectorAll(".number-button");
+const dotBtn = document.querySelector(".dot-button");
 const clrBtn = document.querySelector(".clr-button");
 const delBtn = document.querySelector(".del-button");
 const opBtns = document.querySelectorAll(".op-button");
@@ -153,6 +162,7 @@ const lowerScreen = document.querySelector(".lower-screen");
 const upperScreen = document.querySelector(".upper-screen");
 
 numBtns.forEach((btn) => btn.addEventListener("click", numberInput));
+dotBtn.addEventListener("click", dotInput);
 opBtns.forEach((btn) => btn.addEventListener("click", operatorInput));
 eqBtn.addEventListener("click", eqInput);
 clrBtn.addEventListener("click", () => {
