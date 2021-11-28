@@ -113,6 +113,7 @@ function numberInput(e) {
 function operatorInput(e) {
   if (expr.result != null) {
     expr.prevOp = expr.result;
+    expr.result = null;
     expr.operator = e.target.getAttribute("data-op");
     expr.currOp = 0;
     displayScreen(1);
@@ -122,10 +123,10 @@ function operatorInput(e) {
     expr.currOp = 0;
     displayScreen(1);
   } else if (expr.prevOp != null) {
-    expr.result = operate(expr.operator, expr.prevOp, expr.currOp);
+    expr.prevOp = operate(expr.operator, expr.prevOp, expr.currOp);
     expr.operator = e.target.getAttribute("data-op");
     expr.currOp = 0;
-    displayScreen(2);
+    displayScreen(1);
   }
 }
 
@@ -160,4 +161,4 @@ delBtn.addEventListener("click", () => {
     expr.currOp = 0;
     displayScreen(0);
   }
-})
+});
