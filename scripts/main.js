@@ -94,6 +94,7 @@ function displayScreen(mode) {
     default:
       break;
   }
+  console.log(expr.currOp);
 }
 
 function clearExprn() {
@@ -109,10 +110,14 @@ function clearScreen() {
 }
 
 function numberInput(e) {
-  if (expr.currOp == 0) {
-    expr.currOp = e.target.innerText;
-  } else {
+  let curSTring = expr.currOp.toString();
+  // check string includes dot
+  // to prevent small decimal values turning to big numbers
+  // e.g. 0.3 to 3
+  if (expr.currOp != 0 || curSTring.includes(".")) {
     expr.currOp += e.target.innerText;
+  } else {
+    expr.currOp = e.target.innerText;
   }
   displayScreen(0);
 }
