@@ -1,4 +1,4 @@
-let expr = {
+const expr = {
   prevOp: null,
   operator: null,
   currOp: 0,
